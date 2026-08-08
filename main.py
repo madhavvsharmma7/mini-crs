@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+import sys
+sys.stdout.reconfigure(encoding='utf-8')#!/usr/bin/env python3
 import typer
 import json
 import sys
