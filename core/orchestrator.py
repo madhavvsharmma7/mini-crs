@@ -1,9 +1,18 @@
-from dotenv import load_dotenv
-load_dotenv()
-from groq import Groq
-import json
 import os
+import json
 import re
+from pathlib import Path
+from groq import Groq
+
+# Load .env from project root regardless of where script is run from
+env_path = Path(__file__).resolve().parent.parent / '.env'
+if env_path.exists():
+    with open(env_path) as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith('#') and '=' in line:
+                key, val = line.split('=', 1)
+                os.environ.setdefault(key.strip(), val.strip())
 
 client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
