@@ -1,48 +1,45 @@
-# Mini CRS — Cyber Reasoning System
+Replace the entire README with this — select all in VS Code (Ctrl+A), delete, paste this:
 
-**LLM Orchestration Layer for Automated Vulnerability Detection & Patching**
+Mini CRS — Cyber Reasoning System
 
-Built for [AI Kavach — Indian Army Terrier Cyber Quest 2026](https://cyberchallenge.in/tcq2026)
+LLM Orchestration Layer for Automated Vulnerability Detection & Patching
 
-![Demo 1](demo1.png)
-![Demo 2](demo2.png)
-![Demo 3](demo3.png)
-![Demo 4](demo4.png)
+Built for AI Kavach — Indian Army Terrier Cyber Quest 2026
 
----
+Show Image
+Show Image
+Show Image
+Show Image
 
-## What It Does
+What It Does
 
 A 4-agent pipeline that mirrors the architecture of state-of-the-art Cyber Reasoning Systems:
+
 Input: Vulnerable source code
-↓
-[Agent 1] Static Analyzer → finds vulnerability patterns
-↓
-[Agent 2] CWE Classifier → maps to CWE IDs + CVSS scores
-↓
-[Agent 3] Patch Generator → produces fixed, secure code
-↓
-[Agent 4] Patch Verifier → verifies fix resolves all issues
-↓
+         ↓
+[Agent 1] Static Analyzer      → finds vulnerability patterns
+         ↓
+[Agent 2] CWE Classifier       → maps to CWE IDs + CVSS scores
+         ↓
+[Agent 3] Patch Generator      → produces fixed, secure code
+         ↓
+[Agent 4] Patch Verifier       → verifies fix resolves all issues
+         ↓
 Output: Full threat report + patched code + verification verdict
-
-
-## Setup
-
-```bash
+Setup
+bash
 git clone https://github.com/madhavvsharmma7/mini-crs
 cd mini-crs
 pip install -r requirements.txt
-pip install groq
-```
 
-## Usage
+Create a .env file in the project folder:
 
-```bash
-# Set your free Groq API key (get one at console.groq.com)
-export GROQ_API_KEY=your_key_here  # Mac/Linux
-$env:GROQ_API_KEY = "your_key_here"  # Windows
+GROQ_API_KEY=your_key_here
 
+Get a free key at console.groq.com
+
+Usage
+bash
 # Run with built-in demo (6 vulnerabilities)
 python main.py --demo
 
@@ -51,33 +48,23 @@ python main.py --file path/to/your/code.py
 
 # Save JSON report
 python main.py --demo --output report.json
-```
+Agent Architecture
+Agent	Role	Output
+Static Analyzer	Pattern-based vulnerability detection	Vuln list + severity
+CWE Classifier	Maps vulns to CWE/CVSS framework	CWE IDs + CVSS scores
+Patch Generator	Produces secure patched code	Fixed code + change log
+Patch Verifier	Validates fix correctness	PASS/PARTIAL/FAIL + confidence
+Tech Stack
+Python 3.12+
+Groq API (llama-3.3-70b-versatile) — LLM orchestration
+Rich — terminal UI
+Typer — CLI framework
+Vulnerabilities Detected
+SQL Injection (CWE-89)
+Path Traversal (CWE-22)
+Command Injection (CWE-78)
+Hardcoded Credentials (CWE-798)
+Insecure Password Storage (CWE-916)
+And more...
 
-## Agent Architecture
-
-| Agent | Role | Output |
-|-------|------|--------|
-| Static Analyzer | Pattern-based vulnerability detection | Vuln list + severity |
-| CWE Classifier | Maps vulns to CWE/CVSS framework | CWE IDs + CVSS scores |
-| Patch Generator | Produces secure patched code | Fixed code + change log |
-| Patch Verifier | Validates fix correctness | PASS/PARTIAL/FAIL + confidence |
-
-## Tech Stack
-
-- **Python 3.12+**
-- **Groq API** (llama-3.3-70b-versatile) — LLM orchestration
-- **Rich** — terminal UI
-- **Typer** — CLI framework
-
-## Vulnerabilities Detected
-
-- SQL Injection (CWE-89)
-- Path Traversal (CWE-22)
-- Command Injection (CWE-78)
-- Hardcoded Credentials (CWE-798)
-- Insecure Password Storage (CWE-916)
-- And more...
-
----
-
-Built by [@madhavvsharmma](https://x.com/madhavvsharmma) · [Delvox Labs](https://delvoxlabs.com)
+Built by @madhavvsharmma · Delvox Labs
