@@ -1,15 +1,10 @@
-Replace the entire README with this — select all in VS Code (Ctrl+A), delete, paste this:
-
 Mini CRS — Cyber Reasoning System
 
 LLM Orchestration Layer for Automated Vulnerability Detection & Patching
 
 Built for AI Kavach — Indian Army Terrier Cyber Quest 2026
 
-Show Image
-Show Image
-Show Image
-Show Image
+
 
 What It Does
 
